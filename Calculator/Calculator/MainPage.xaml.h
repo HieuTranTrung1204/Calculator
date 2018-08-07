@@ -7,6 +7,10 @@
 
 #include "MainPage.g.h"
 
+#include <string>
+#include <stdarg.h>
+#include <stdio.h>
+
 namespace Calculator
 {
 	/// <summary>
@@ -17,5 +21,12 @@ namespace Calculator
 	public:
 		MainPage();
 
+	private:
+		void btnNumber_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		void btnOperator_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+		
+		std::string dataCacul, dataOperat;
+		int click = 0;
+		double a, b;
 	};
 }

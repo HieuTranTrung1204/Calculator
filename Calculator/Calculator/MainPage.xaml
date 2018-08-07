@@ -25,7 +25,7 @@
         <Image HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Source="Assets/menu.png"/>
 
         <TextBlock HorizontalAlignment="Left" Margin="115,35,0,0" TextWrapping="Wrap" Text="Standard" FontSize="35" VerticalAlignment="Top" Height="56" Width="363"/>
-        <TextBlock HorizontalAlignment="Right" Margin="70,150,20,0" TextWrapping="NoWrap" Text="0" FontSize="60" VerticalAlignment="Top" TextAlignment="Right" FontWeight="Bold"/>
+        <TextBlock x:Name="txtText" HorizontalAlignment="Right" Margin="70,150,20,0" TextWrapping="NoWrap" Text="0" FontSize="60" VerticalAlignment="Top" TextAlignment="Right" FontWeight="Bold"/>
 
         <Button Content="" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
         <Button Content="" FontSize="45" HorizontalAlignment="Left" Margin="150,300,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
@@ -35,26 +35,26 @@
         <Button Content="CE" FontSize="45" HorizontalAlignment="Left" Margin="10,405,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
         <Button Content="C" FontSize="45" Background="AliceBlue" HorizontalAlignment="Left" Margin="150,405,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
         <Button Content="" FontSize="45" HorizontalAlignment="Left" Margin="290,405,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
-        <Button Content="/" FontSize="45" HorizontalAlignment="Left" Margin="430,405,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
 
-        <Button Content="7" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,509,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
-        <Button Content="8" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="150,509,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
-        <Button Content="9" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="290,509,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
-        <Button Content="%" FontSize="45" HorizontalAlignment="Left" Margin="430,509,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
-        <Button Content="4" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,614,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
-        <Button Content="5" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="150,614,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
-        <Button Content="6" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="290,614,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
-        <Button Content="x" FontSize="45" HorizontalAlignment="Left" Margin="430,614,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
-        <Button Content="1" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,718,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
-        <Button Content="2" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="150,718,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
-        <Button Content="3" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="290,718,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
-        <Button Content="-" FontSize="45" HorizontalAlignment="Left" Margin="430,718,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
+        <Button x:Name="btn9" Click="btnNumber_Click" Content="9" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="290,509,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
+        <Button x:Name="btn8" Click="btnNumber_Click" Content="8" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="150,509,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
+        <Button x:Name="btn7" Click="btnNumber_Click" Content="7" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,509,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
+        <Button x:Name="btn4" Click="btnNumber_Click" Content="4" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,614,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
+        <Button x:Name="btn5" Click="btnNumber_Click" Content="5" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="150,614,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
+        <Button x:Name="btn6" Click="btnNumber_Click" Content="6" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="290,614,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
+        <Button x:Name="btn1" Click="btnNumber_Click" Content="1" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,718,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
+        <Button x:Name="btn2" Click="btnNumber_Click" Content="2" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="150,718,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
+        <Button x:Name="btn3" Click="btnNumber_Click" Content="3" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="290,718,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
+        <Button x:Name="btn0" Click="btnNumber_Click" Content="0" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="150,823,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
 
         <Button Content="" HorizontalAlignment="Left" Margin="10,823,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
-        <Button Content="0" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="150,823,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>
-        <Button Content="." FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="290,823,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
-        <Button Content="=" FontSize="45" HorizontalAlignment="Left" Margin="430,823,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
-
+        
+        <Button Content="/" Click="btnOperator_Click" FontSize="45" HorizontalAlignment="Left" Margin="430,405,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
+        <Button Content="x" Click="btnOperator_Click" FontSize="45" HorizontalAlignment="Left" Margin="430,509,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
+        <Button Content="-" Click="btnOperator_Click" FontSize="45" HorizontalAlignment="Left" Margin="430,614,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
+        <Button Content="+" Click="btnOperator_Click" FontSize="45" HorizontalAlignment="Left" Margin="430,718,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
+        <Button Content="=" Click="btnOperator_Click" FontSize="45" HorizontalAlignment="Left" Margin="430,823,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
+        <Button Content="." Click="btnOperator_Click" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="290,823,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
 
     </Grid>
 </Page>

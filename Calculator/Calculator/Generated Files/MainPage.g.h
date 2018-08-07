@@ -7,6 +7,16 @@
 //------------------------------------------------------------------------------
 
 
+namespace Windows {
+    namespace UI {
+        namespace Xaml {
+            namespace Controls {
+                ref class TextBlock;
+                ref class Button;
+            }
+        }
+    }
+}
 
 namespace Calculator
 {
@@ -23,6 +33,17 @@ namespace Calculator
     private:
         bool _contentLoaded;
     
+        private: ::Windows::UI::Xaml::Controls::TextBlock^ txtText;
+        private: ::Windows::UI::Xaml::Controls::Button^ btn9;
+        private: ::Windows::UI::Xaml::Controls::Button^ btn8;
+        private: ::Windows::UI::Xaml::Controls::Button^ btn7;
+        private: ::Windows::UI::Xaml::Controls::Button^ btn4;
+        private: ::Windows::UI::Xaml::Controls::Button^ btn5;
+        private: ::Windows::UI::Xaml::Controls::Button^ btn6;
+        private: ::Windows::UI::Xaml::Controls::Button^ btn1;
+        private: ::Windows::UI::Xaml::Controls::Button^ btn2;
+        private: ::Windows::UI::Xaml::Controls::Button^ btn3;
+        private: ::Windows::UI::Xaml::Controls::Button^ btn0;
     };
 }
 
