@@ -9,6 +9,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Button x:Name="btnShowToastSched" Content="ShowToastNotificationScheduled" HorizontalAlignment="Left" Margin="52,58,0,0" VerticalAlignment="Top" Click="btnShowToastSched_Click"/>
+        <Button x:Name="btnShowToast" Content="ShowToastNotification" HorizontalAlignment="Left" Margin="52,108,0,0" VerticalAlignment="Top" Click="btnShowToast_Click"/>
 
     </Grid>
 </Page>
