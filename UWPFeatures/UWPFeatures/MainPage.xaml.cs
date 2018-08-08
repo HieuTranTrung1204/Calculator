@@ -9,6 +9,7 @@ using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Notifications;
+using Windows.UI.StartScreen;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -46,6 +47,29 @@ namespace UWPFeatures
 
             ScheduledToastNotification toast = new ScheduledToastNotification(doc, DateTimeOffset.Now.AddSeconds(timeDelay));
             ToastNotificationManager.CreateToastNotifier().AddToSchedule(toast);
+        }
+        void ShowToastXml()
+        {
+            // template to load for showing Toast Notification
+            var xmlToastTemplate = "<toast launch=\"app-defined-string\">" +
+                                     "<visual>" +
+                                       "<binding template =\"ToastGeneric\">" +
+                                         "<text>Sample Notification</text>" +
+                                         "<text>" +
+                                           "This is a sample toast notification from Hieu" +
+                                         "</text>" +
+                                       "</binding>" +
+                                     "</visual>" +
+                                   "</toast>";
+
+            // load the template as XML document
+            var xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(xmlToastTemplate);
+
+            // create the toast notification and show to user
+            var toastNotification = new ToastNotification(xmlDocument);
+            var notification = ToastNotificationManager.CreateToastNotifier();
+            notification.Show(toastNotification);
         }
         void ShowToastNotification()
         {
@@ -152,18 +176,101 @@ namespace UWPFeatures
 
             // And create the toast notification
             ToastNotification notification = new ToastNotification(toastContent.GetXml());
-
             // And then send the toast
-            ToastNotificationManager.CreateToastNotifier().Show(notification);
+            ToastNotificationManager.CreateToastNotifier().Show(notification);        
+        }
+
+        // Tiles
+        void ShowTiles()
+        {
+            // In a real app, these would be initialized with actual data
+            string from = "text 1";
+            string subject = "texxt 2";
+            string body = "detail ";
+
+
+            // Construct the tile content
+            TileContent content = new TileContent()
+            {
+                Visual = new TileVisual()
+                {
+                    TileMedium = new TileBinding()
+                    {
+                        Content = new TileBindingContentAdaptive()
+                        {
+                            Children =
+                {
+                    new AdaptiveText()
+                    {
+                        Text = from
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = subject,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = body,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    }
+                }
+                        }
+                    },
+
+                    TileWide = new TileBinding()
+                    {
+                        Content = new TileBindingContentAdaptive()
+                        {
+                            Children =
+                {
+                    new AdaptiveText()
+                    {
+                        Text = from,
+                        HintStyle = AdaptiveTextStyle.Subtitle
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = subject,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    },
+
+                    new AdaptiveText()
+                    {
+                        Text = body,
+                        HintStyle = AdaptiveTextStyle.CaptionSubtle
+                    }
+                }
+                        }
+                    }
+                }
+            };
+            // Create the tile notification
+            var tileNotification = new TileNotification(content.GetXml());
+            tileNotification.ExpirationTime = DateTimeOffset.UtcNow.AddSeconds(5);
+            
+            // Send the notification to the primary tile
+            TileUpdateManager.CreateTileUpdaterForApplication().Update(tileNotification);
         }
         private void btnShowToastSched_Click(object sender, RoutedEventArgs e)
         {
-            ShowToastNotificationScheduled(3);
+            //ShowToastNotificationScheduled(3);
         }
 
         private void btnShowToast_Click(object sender, RoutedEventArgs e)
         {
-            ShowToastNotification();
+            //ShowToastNotification();
+
+            // SecondaryTile secondaryTile = new SecondaryTile("");
+            // secondaryTile.VisualElements.Square150x150Logo = new Uri("ms-appx:///Assets/Square44x44Logo.scale-100.png");
+            //secondaryTile.UpdateAsync();
+
+            //ShowToastXml();
+
+            ShowTiles();
         }
     }
 }
