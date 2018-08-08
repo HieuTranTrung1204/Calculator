@@ -64,12 +64,50 @@ double convertToDouble(Platform::String^ input)
 MainPage::MainPage()
 {
 	InitializeComponent();
+
+	// CURSOR
 	m_cursor = ref new Windows::UI::Core::CoreCursor(Windows::UI::Core::CoreCursorType::Custom, IDC_CURSOR2);
 	::Windows::UI::Xaml::Window::Current->CoreWindow->GetForCurrentThread()->PointerCursor = m_cursor;
-}
 
+	m_rToastManager = ::Windows::UI::Notifications::ToastNotificationManager::CreateToastNotifier();
+	
+}
+void Calculator::MainPage::ShowToast(int timeDelay)
+{
+	::Windows::UI::Notifications::ToastTemplateType _ToastTemplate;
+	_ToastTemplate = ::Windows::UI::Notifications::ToastTemplateType::ToastImageAndText02;
+	::Windows::Data::Xml::Dom::XmlDocument^ _rToastXml = ::Windows::UI::Notifications::ToastNotificationManager::GetTemplateContent(_ToastTemplate);
+
+	// Add Text 
+	const wchar_t* i_aTitleText = L"Tieu de";
+	const wchar_t* i_aBodyText = L"body";
+	::Windows::Data::Xml::Dom::XmlNodeList^ _rToastTextElements = _rToastXml->GetElementsByTagName("text");
+	_rToastTextElements->Item(0)->InnerText = ref new ::Platform::String(i_aTitleText);
+	_rToastTextElements->Item(1)->InnerText = ref new ::Platform::String(i_aBodyText);
+
+
+	// TOAST
+	if (timeDelay > 0)
+	{
+		::Windows::Globalization::Calendar _Cl;
+		_Cl.SetToNow();
+		_Cl.AddSeconds(timeDelay);
+		::Windows::Foundation::DateTime _StartTime = _Cl.GetDateTime();
+		::Windows::UI::Notifications::ScheduledToastNotification^ _rToast = ref new ::Windows::UI::Notifications::ScheduledToastNotification(_rToastXml, _StartTime);
+
+		m_rToastManager->AddToSchedule(_rToast);
+	}
+	else
+	{
+		::Windows::UI::Notifications::ToastNotification^ _rToast = ref new ::Windows::UI::Notifications::ToastNotification(_rToastXml);
+		m_rToastManager->Show(_rToast);
+	}
+
+}
 void Calculator::MainPage::btnOperator_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
+	
+
 	String^ operat = ((Button^)sender)->Content->ToString();
 	if (operat->Equals(L"="))
 	{
@@ -131,4 +169,9 @@ void Calculator::MainPage::btnAction_Click(Platform::Object^ sender, Windows::UI
 		dataCacul.clear();
 		txtText->Text = convertFromString(dataCacul);
 	}
+}
+
+void  Calculator::MainPage::btnFeatures_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	ShowToast(3);
 }

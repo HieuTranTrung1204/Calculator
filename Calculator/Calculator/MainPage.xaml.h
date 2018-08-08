@@ -32,6 +32,14 @@ namespace Calculator
 		int click = 0;
 		double a, b;
 
+		// FEATURES
+		void btnFeatures_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+
+		// CURSOR
 		::Windows::UI::Core::CoreCursor^ m_cursor;
+
+		// TOAST
+		::Windows::UI::Notifications::ToastNotifier^ m_rToastManager;
+		void ShowToast(int timeDelay = 0);
 	};
 }
