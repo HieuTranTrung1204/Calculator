@@ -64,6 +64,8 @@ double convertToDouble(Platform::String^ input)
 MainPage::MainPage()
 {
 	InitializeComponent();
+	m_cursor = ref new Windows::UI::Core::CoreCursor(Windows::UI::Core::CoreCursorType::Custom, IDC_CURSOR2);
+	::Windows::UI::Xaml::Window::Current->CoreWindow->GetForCurrentThread()->PointerCursor = m_cursor;
 }
 
 void Calculator::MainPage::btnOperator_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)

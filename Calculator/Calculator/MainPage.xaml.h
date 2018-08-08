@@ -11,6 +11,8 @@
 #include <stdarg.h>
 #include <stdio.h>
 
+#include "resource.h"
+
 namespace Calculator
 {
 	/// <summary>
@@ -28,5 +30,7 @@ namespace Calculator
 		std::string dataCacul, dataOperat;
 		int click = 0;
 		double a, b;
+
+		::Windows::UI::Core::CoreCursor^ m_cursor;
 	};
 }

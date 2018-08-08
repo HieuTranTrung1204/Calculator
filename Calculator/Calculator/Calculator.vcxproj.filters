@@ -21,6 +21,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h" />
     <ClInclude Include="MainPage.xaml.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\LockScreenLogo.scale-200.png">
@@ -53,8 +54,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Calculator_TemporaryKey.pfx" />
+    <None Include="cursor1.cur" />
+    <None Include="cursor_32.cur" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
 </Project>
