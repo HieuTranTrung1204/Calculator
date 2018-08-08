@@ -110,7 +110,6 @@ void Calculator::MainPage::btnOperator_Click(Platform::Object^ sender, Windows::
 	}
 }
 
-
 void Calculator::MainPage::btnNumber_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	if (click == 1)
@@ -122,4 +121,14 @@ void Calculator::MainPage::btnNumber_Click(Platform::Object^ sender, Windows::UI
 	dataCacul.append(convertToStdString(number));
 
 	txtText->Text = convertFromString(dataCacul);
+}
+
+void Calculator::MainPage::btnAction_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
+{
+	String^ action = ((Button^)sender)->Content->ToString();
+	if (action->Equals(L"C"))
+	{
+		dataCacul.clear();
+		txtText->Text = convertFromString(dataCacul);
+	}
 }

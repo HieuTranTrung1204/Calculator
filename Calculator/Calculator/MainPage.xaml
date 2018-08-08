@@ -33,7 +33,7 @@
         <Button Content="" HorizontalAlignment="Left" Margin="430,300,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
 
         <Button Content="CE" FontSize="45" HorizontalAlignment="Left" Margin="10,405,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
-        <Button Content="C" FontSize="45" Background="AliceBlue" HorizontalAlignment="Left" Margin="150,405,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
+        <Button Content="C" Click="btnAction_Click" FontSize="45" Background="AliceBlue" HorizontalAlignment="Left" Margin="150,405,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
         <Button Content="" FontSize="45" HorizontalAlignment="Left" Margin="290,405,0,0" VerticalAlignment="Top" Height="100" Width="135"/>
 
         <Button x:Name="btn9" Click="btnNumber_Click" Content="9" FontSize="45" FontWeight="Bold" HorizontalAlignment="Left" Margin="290,509,0,0" VerticalAlignment="Top" Height="100" Width="135" Background="White"/>

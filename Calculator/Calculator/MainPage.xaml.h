@@ -26,7 +26,8 @@ namespace Calculator
 	private:
 		void btnNumber_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
 		void btnOperator_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
-		
+		void btnAction_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);
+
 		std::string dataCacul, dataOperat;
 		int click = 0;
 		double a, b;
