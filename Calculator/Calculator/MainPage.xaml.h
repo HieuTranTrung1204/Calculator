@@ -40,6 +40,9 @@ namespace Calculator
 
 		// TOAST
 		::Windows::UI::Notifications::ToastNotifier^ m_rToastManager;
+		::Windows::UI::Notifications::TileUpdater^ m_rTileNotificationUpdater;
+
 		void ShowToast(int timeDelay = 0);
+		void ShowTile(int timeExp = 0);
 	};
 }

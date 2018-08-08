@@ -70,8 +70,11 @@ MainPage::MainPage()
 	::Windows::UI::Xaml::Window::Current->CoreWindow->GetForCurrentThread()->PointerCursor = m_cursor;
 
 	m_rToastManager = ::Windows::UI::Notifications::ToastNotificationManager::CreateToastNotifier();
+	m_rTileNotificationUpdater = ::Windows::UI::Notifications::TileUpdateManager::CreateTileUpdaterForApplication();
 	
 }
+
+// TOAST
 void Calculator::MainPage::ShowToast(int timeDelay)
 {
 	::Windows::UI::Notifications::ToastTemplateType _ToastTemplate;
@@ -86,7 +89,6 @@ void Calculator::MainPage::ShowToast(int timeDelay)
 	_rToastTextElements->Item(1)->InnerText = ref new ::Platform::String(i_aBodyText);
 
 
-	// TOAST
 	if (timeDelay > 0)
 	{
 		::Windows::Globalization::Calendar _Cl;
@@ -104,6 +106,25 @@ void Calculator::MainPage::ShowToast(int timeDelay)
 	}
 
 }
+
+// TILE
+void Calculator::MainPage::ShowTile(int timeExp)
+{
+	::Windows::UI::Notifications::TileTemplateType _TileTemplate;
+	_TileTemplate = ::Windows::UI::Notifications::TileTemplateType::TileSquare150x150Text02;
+	::Windows::Data::Xml::Dom::XmlDocument^ _rTileXml = ::Windows::UI::Notifications::TileUpdateManager::GetTemplateContent(_TileTemplate);
+
+	const wchar_t* i_aTitleText = L"Tieu de";
+	const wchar_t* i_aBodyText = L"body";
+	::Windows::Data::Xml::Dom::XmlNodeList^ _rToastTextElements = _rTileXml->GetElementsByTagName("text");
+	_rToastTextElements->Item(0)->InnerText = ref new ::Platform::String(i_aTitleText);
+	_rToastTextElements->Item(1)->InnerText = ref new ::Platform::String(i_aBodyText);
+	
+	::Windows::UI::Notifications::TileNotification^ rTile = ref new ::Windows::UI::Notifications::TileNotification(_rTileXml);
+	m_rTileNotificationUpdater->Update(rTile);
+}
+
+
 void Calculator::MainPage::btnOperator_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	
@@ -174,4 +195,5 @@ void Calculator::MainPage::btnAction_Click(Platform::Object^ sender, Windows::UI
 void  Calculator::MainPage::btnFeatures_Click(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
 	ShowToast(3);
+	ShowTile(3);
 }
