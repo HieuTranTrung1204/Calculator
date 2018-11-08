@@ -72,4 +72,4 @@ using lib:
 -----------------------------------------------
 # Part 2: Game với UWP 
 ## * WCP
-- <https://confluence.gameloft.org/display/W8KB/Workshop+WCPv2>
+-
